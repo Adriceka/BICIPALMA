@@ -1,8 +1,8 @@
-package bicipalma.appalma;
+package edu.teamrockett.bicipalma.appalma;
 
-import bicipalma.bicicleta.Bicicleta;
-import bicipalma.estacion.Estacion;
-import bicipalma.tarjetaUsuario.TarjetaUsuario;
+import edu.teamrockett.bicipalma.bicicleta.Bicicleta;
+import edu.teamrockett.bicipalma.estacion.Estacion;
+import edu.teamrockett.bicipalma.tarjetaUsuario.TarjetaUsuario;
 
 public class BiciPalma {
 

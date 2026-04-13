@@ -1,4 +1,4 @@
-package bicipalma.tarjetaUsuario;
+package edu.teamrockett.bicipalma.tarjetaUsuario;
 
 public class TarjetaUsuario implements Autenticacion {
 

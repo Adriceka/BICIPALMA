@@ -1,6 +1,6 @@
-package bicipalma.estacion;
+package edu.teamrockett.bicipalma.estacion;
 
-import bicipalma.bicicleta.Bicicleta;
+import edu.teamrockett.bicipalma.bicicleta.Bicicleta;
 
 class Anclaje {
 

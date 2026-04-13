@@ -1,4 +1,4 @@
-package bicipalma.bicicleta;
+package edu.teamrockett.bicipalma.bicicleta;
 
 public class Bicicleta {
 

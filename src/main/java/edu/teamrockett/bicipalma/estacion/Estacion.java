@@ -1,10 +1,10 @@
-package bicipalma.estacion;
+package edu.teamrockett.bicipalma.estacion;
 
 import java.util.Arrays;
 import java.util.Optional;
 
-import bicipalma.bicicleta.Bicicleta;
-import bicipalma.tarjetaUsuario.TarjetaUsuario;
+import edu.teamrockett.bicipalma.bicicleta.Bicicleta;
+import edu.teamrockett.bicipalma.tarjetaUsuario.TarjetaUsuario;
 
 public class Estacion {
 
