@@ -1,26 +1,26 @@
 package bicipalma.estacion;
 
-import bicipalma.bicicleta.Movil;
+import bicipalma.bicicleta.Bicicleta;
 
 class Anclaje {
 
-    private Movil contenido;
+    private Bicicleta contenido;
 
     boolean libre() {
         return contenido == null;
     }
 
-    void ocupar(Movil bici) {
+    void ocupar(Bicicleta bici) {
         this.contenido = bici;
     }
 
-    Movil liberar() {
-        Movil temp = contenido;
+    Bicicleta liberar() {
+        Bicicleta temp = contenido;
         contenido = null;
         return temp;
     }
 
-    Movil consultar() {
+    Bicicleta consultar() {
         return contenido;
     }
 }

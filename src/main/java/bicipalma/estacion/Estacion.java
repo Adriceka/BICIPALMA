@@ -3,8 +3,8 @@ package bicipalma.estacion;
 import java.util.Arrays;
 import java.util.Optional;
 
-import bicipalma.bicicleta.Movil;
-import bicipalma.tarjetaUsuario.Autenticacion;
+import bicipalma.bicicleta.Bicicleta;
+import bicipalma.tarjetaUsuario.TarjetaUsuario;
 
 public class Estacion {
 
@@ -18,17 +18,17 @@ public class Estacion {
         this.anclajes = new Anclajes(capacidad);
     }
 
-    public void mostrarInfo() {
+    public void consultarEstacion() {
         System.out.println("Estacion " + identificador + " - " + ubicacion);
     }
 
-    public long contarLibres() {
-        return Arrays.stream(anclajes.obtenerAnclajes())
-                     .filter(Anclaje::libre)
-                     .count();
+    public int anclajesLibres() {
+        return (int) Arrays.stream(anclajes.obtenerAnclajes())
+                           .filter(Anclaje::libre)
+                           .count();
     }
 
-    public void estacionarBici(Movil bici) {
+    public void anclarBicicleta(Bicicleta bici) {
 
         Optional<Anclaje> hueco = Arrays.stream(anclajes.obtenerAnclajes())
                                         .filter(Anclaje::libre)
@@ -41,9 +41,13 @@ public class Estacion {
         }
     }
 
-    public void sacarBici(Autenticacion usuario) {
+    public boolean leerTarjetaUsuario(TarjetaUsuario tarjeta) {
+        return tarjeta != null && tarjeta.isActivada();
+    }
 
-        if (!usuario.isActivada()) {
+    public void retirarBicicleta(TarjetaUsuario usuario) {
+
+        if (!leerTarjetaUsuario(usuario)) {
             System.out.println("Acceso denegado");
             return;
         }
@@ -53,14 +57,14 @@ public class Estacion {
                                           .findFirst();
 
         if (ocupado.isPresent()) {
-            Movil bici = ocupado.get().liberar();
+            Bicicleta bici = ocupado.get().liberar();
             System.out.println("Bici retirada: " + bici.getId());
         } else {
             System.out.println("No hay bicis disponibles");
         }
     }
 
-    public void verAnclajes() {
+    public void consultarAnclajes() {
 
         int indice = 0;
 

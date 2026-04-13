@@ -1,6 +1,6 @@
 package bicipalma.estacion;
 
-import bicipalma.bicicleta.Movil;
+import bicipalma.bicicleta.Bicicleta;
 
 class Anclajes {
 
@@ -25,7 +25,7 @@ class Anclajes {
         return estructura.length;
     }
 
-    void insertarBici(int posicion, Movil bici) {
+    void insertarBici(int posicion, Bicicleta bici) {
         estructura[posicion].ocupar(bici);
     }
 
@@ -33,7 +33,7 @@ class Anclajes {
         estructura[posicion].liberar();
     }
 
-    Movil verBici(int posicion) {
+    Bicicleta verBici(int posicion) {
         return estructura[posicion].consultar();
     }
 }
