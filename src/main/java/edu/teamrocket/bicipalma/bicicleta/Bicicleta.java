@@ -1,14 +1,20 @@
 package edu.teamrocket.bicipalma.bicicleta;
 
-public class Bicicleta {
+public class Bicicleta implements Movil {
 
-	private int id;
+    private int id;
 
-	public Bicicleta(int id) {
-		this.id = id;
-	}
+    public Bicicleta(int id) {
+        this.id = id;
+    }
 
-	public int getId() {
-		return id;
-	}
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(id);
+    }
 }
