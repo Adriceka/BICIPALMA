@@ -24,18 +24,18 @@ public class Estacion {
 
     public int anclajesLibres() {
         return (int) Arrays.stream(anclajes.obtenerAnclajes())
-                           .filter(Anclaje::libre)
+                           .filter(a -> !a.isOcupado())
                            .count();
     }
 
     public void anclarBicicleta(Bicicleta bici) {
 
         Optional<Anclaje> hueco = Arrays.stream(anclajes.obtenerAnclajes())
-                                        .filter(Anclaje::libre)
+                                        .filter(a -> !a.isOcupado())
                                         .findFirst();
 
         if (hueco.isPresent()) {
-            hueco.get().ocupar(bici);
+            hueco.get().anclarBici(bici);
         } else {
             System.out.println("Estacion llena");
         }
@@ -53,11 +53,12 @@ public class Estacion {
         }
 
         Optional<Anclaje> ocupado = Arrays.stream(anclajes.obtenerAnclajes())
-                                          .filter(a -> !a.libre())
+                                          .filter(Anclaje::isOcupado)
                                           .findFirst();
 
         if (ocupado.isPresent()) {
-            Bicicleta bici = ocupado.get().liberar();
+            Bicicleta bici = ocupado.get().getBici();
+            ocupado.get().liberarBici();
             System.out.println("Bici retirada: " + bici.getId());
         } else {
             System.out.println("No hay bicis disponibles");
@@ -70,13 +71,20 @@ public class Estacion {
 
         for (Anclaje a : anclajes.obtenerAnclajes()) {
 
-            if (a.libre()) {
+            if (!a.isOcupado()) {
                 System.out.println("Posicion " + indice + ": libre");
             } else {
-                System.out.println("Posicion " + indice + ": bici " + a.consultar().getId());
+                System.out.println("Posicion " + indice + ": bici " + a.getBici().getId());
             }
 
             indice++;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "id: " + identificador + 
+               " \ndireccion: " + ubicacion + 
+               " \nanclajes: " + anclajes.capacidadTotal();
     }
 }

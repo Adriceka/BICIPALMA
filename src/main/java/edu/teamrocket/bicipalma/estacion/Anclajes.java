@@ -2,7 +2,7 @@ package edu.teamrocket.bicipalma.estacion;
 
 import edu.teamrocket.bicipalma.bicicleta.Bicicleta;
 
-class Anclajes {
+public class Anclajes {
 
     private final Anclaje[] estructura;
 
@@ -17,23 +17,28 @@ class Anclajes {
         }
     }
 
-    Anclaje[] obtenerAnclajes() {
+    public Anclaje[] obtenerAnclajes() {
         return estructura;
     }
 
-    int capacidadTotal() {
+    public int capacidadTotal() {
         return estructura.length;
     }
 
-    void insertarBici(int posicion, Bicicleta bici) {
-        estructura[posicion].ocupar(bici);
+    public void insertarBici(int posicion, Bicicleta bici) {
+        estructura[posicion].anclarBici(bici);
     }
 
-    void extraerBici(int posicion) {
-        estructura[posicion].liberar();
+    public void extraerBici(int posicion) {
+        estructura[posicion].liberarBici();
     }
 
-    Bicicleta verBici(int posicion) {
-        return estructura[posicion].consultar();
+    public Bicicleta verBici(int posicion) {
+        return estructura[posicion].getBici();
+    }
+
+    @Override
+    public String toString() {
+        return "Numero de anclajes: " + estructura.length;
     }
 }

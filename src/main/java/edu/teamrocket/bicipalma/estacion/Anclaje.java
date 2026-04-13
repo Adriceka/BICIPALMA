@@ -2,25 +2,23 @@ package edu.teamrocket.bicipalma.estacion;
 
 import edu.teamrocket.bicipalma.bicicleta.Bicicleta;
 
-class Anclaje {
+public class Anclaje {
 
     private Bicicleta contenido;
 
-    boolean libre() {
-        return contenido == null;
-    }
-
-    void ocupar(Bicicleta bici) {
+    public void anclarBici(Bicicleta bici) {
         this.contenido = bici;
     }
 
-    Bicicleta liberar() {
-        Bicicleta temp = contenido;
-        contenido = null;
-        return temp;
+    public Bicicleta getBici() {
+        return contenido;
     }
 
-    Bicicleta consultar() {
-        return contenido;
+    public void liberarBici() {
+        contenido = null;
+    }
+
+    public boolean isOcupado() {
+        return contenido != null;
     }
 }
