@@ -1,16 +1,26 @@
 package bicipalma.tarjetaUsuario;
 
-public class TarjetaUsuario {
+public class TarjetaUsuario implements Autenticacion {
 
-	private String idUsuario;
-	private boolean activada;
+    private final String idUsuario;
+    private boolean activa;
 
-	public TarjetaUsuario(String idUsuario, boolean activada) {
-		this.idUsuario = idUsuario;
-		this.activada = activada;
-	}
+    public TarjetaUsuario(String idUsuario, boolean activa) {
+        this.idUsuario = idUsuario;
+        this.activa = activa;
+    }
 
-	public boolean isActivada() {
-		return activada;
-	}
+    @Override
+    public boolean isActivada() {
+        return activa;
+    }
+
+    public void cambiarEstado(boolean estado) {
+        this.activa = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + idUsuario + "}";
+    }
 }
