@@ -1,31 +1,30 @@
-package domain.bicicleta;
+package edu.teamrocket.bicipalma.bicicleta;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Before;
-import org.junit.Test;
+class BicicletaTest {
 
-public class BicicletaTest {
+    Bicicleta bici;
 
-    Bicicleta bici = null;
-    
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         this.bici = new Bicicleta(999);
     }
 
     @Test
-    public void constructorBiciTest() {
+    void constructorBiciTest() {
         assertEquals(999, bici.getId());
     }
 
     @Test
-    public void toStringTest() {
+    void toStringTest() {
         assertEquals("999", bici.toString());
     }
 
     @Test
-    public void implementationMovilTest() {
+    void implementationMovilTest() {
         Movil movil = bici;
         assertEquals(999, movil.getId());
     }

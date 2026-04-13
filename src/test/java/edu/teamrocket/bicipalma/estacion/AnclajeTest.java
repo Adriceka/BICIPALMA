@@ -1,23 +1,21 @@
-package domain.estacion;
+package edu.teamrocket.bicipalma.estacion;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+import edu.teamrocket.bicipalma.bicicleta.Bicicleta;
 
-import domain.bicicleta.Bicicleta;
-
-public class AnclajeTest {
+class AnclajeTest {
 
     @Test
-    public void anclarBiciTest() {
+    void anclarBiciTest() {
         Anclaje anclaje = new Anclaje();
         anclaje.anclarBici(new Bicicleta(911));
         assertTrue(anclaje.isOcupado());
     }
 
     @Test
-    public void getBiciTest() {
+    void getBiciTest() {
         Anclaje anclaje = new Anclaje();
         anclaje.anclarBici(new Bicicleta(911));
         assertTrue(anclaje.isOcupado());
@@ -26,7 +24,7 @@ public class AnclajeTest {
     }
 
     @Test
-    public void liberarBiciTest() {
+    void liberarBiciTest() {
         Anclaje anclaje = new Anclaje();
         anclaje.anclarBici(new Bicicleta(911));
         assertTrue(anclaje.isOcupado());
@@ -34,5 +32,4 @@ public class AnclajeTest {
         anclaje.liberarBici();
         assertFalse(anclaje.isOcupado());        
     }
-    
 }

@@ -1,14 +1,12 @@
+package edu.teamrocket.bicipalma.estacion;
 
-package domain.estacion;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
-
-public class AnclajesTest {
+class AnclajesTest {
 
     @Test
-    public void toStringTest() {
+    void toStringTest() {
         Anclajes anclajes = new Anclajes(6);
         assertEquals("Numero de anclajes: 6", anclajes.toString());
     } 
